@@ -5,10 +5,8 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.safeContentPadding
 import androidx.compose.material3.Button
@@ -26,11 +24,8 @@ import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.Navigator
 import cafe.adriel.voyager.navigator.currentOrThrow
-import org.jetbrains.compose.resources.painterResource
-import org.jetbrains.compose.ui.tooling.preview.Preview
+import org.basic.project.bottomBar.BottomBarScreen
 
-import kmpbasico.composeapp.generated.resources.Res
-import kmpbasico.composeapp.generated.resources.compose_multiplatform
 
 @Composable
 fun App() {
@@ -119,6 +114,20 @@ class MainScreen: Screen {
             ) {
                 Text(
                     text = "navegar a tercera pantalla"
+                )
+            }
+
+            Spacer(
+                modifier = Modifier.height(30.dp)
+            )
+
+            Button(
+                onClick = {
+                    navigator.push(BottomBarScreen())
+                }
+            ) {
+                Text(
+                    text = "Bottom Bar"
                 )
             }
         }
