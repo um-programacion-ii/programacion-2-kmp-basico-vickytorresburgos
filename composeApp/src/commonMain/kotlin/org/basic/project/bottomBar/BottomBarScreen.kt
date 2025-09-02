@@ -44,7 +44,6 @@ class BottomBarScreen : Screen {
                 },
                 bottomBar = {
                     NavigationBar {
-
                         val tabNavigator: TabNavigator = LocalTabNavigator.current
 
                         NavigationBarItem(
@@ -62,6 +61,42 @@ class BottomBarScreen : Screen {
                             },
                             onClick = {
                                 tabNavigator.current = HomeTabScreen
+                            }
+                        )
+
+                        NavigationBarItem(
+                            selected = tabNavigator.current.key == MenuTabScreen.key,
+                            label = {
+                                Text(
+                                    text = MenuTabScreen.options.title
+                                )
+                            },
+                            icon = {
+                                Icon(
+                                    painter = MenuTabScreen.options.icon!!,
+                                    contentDescription = null
+                                )
+                            },
+                            onClick = {
+                                tabNavigator.current = MenuTabScreen
+                            }
+                        )
+
+                        NavigationBarItem(
+                            selected = tabNavigator.current.key == UserTabScreen.key,
+                            label = {
+                                Text(
+                                    text = UserTabScreen.options.title
+                                )
+                            },
+                            icon = {
+                                Icon(
+                                    painter = UserTabScreen.options.icon!!,
+                                    contentDescription = null
+                                )
+                            },
+                            onClick = {
+                                tabNavigator.current = UserTabScreen
                             }
                         )
                     }
